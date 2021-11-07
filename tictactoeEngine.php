@@ -17,7 +17,7 @@
         protected $player_x;
         protected $player_o;
         
-        public function __construct($game_state = 0, $player_x = 0, $player_o = 0, $turn = PLAYER_X, $depth = self::DEFAULT_DEPTH){
+        public function __construct($game_state = 0, $player_x = 0, $player_o = 0, $turn = self::PLAYER_X, $depth = self::DEFAULT_DEPTH){
             //check if game state is valid;
             if($game_state <= 511 && $game_state >= 0)
                 $this->game_state = $game_state;
@@ -54,7 +54,7 @@
 
         //check if a move is valid on current board
         protected function is_valid($value){
-            if(!in_array(self::ACCEPTABLE_MOVES, $acceptable))
+            if(!in_array(self::ACCEPTABLE_MOVES, $value))
                 return false;
             if(($value & $this->game_state) == $value)
                 return false;
@@ -78,7 +78,7 @@
         }
 
         //alternate board players
-        protected static function alt_players($value = PLAYER_X){
+        protected static function alt_players($value = self::PLAYER_X){
             if($value == self::PLAYER_X)
                 return self::PLAYER_O;
             
@@ -243,6 +243,3 @@
         }
 
     }
-
-    //$engine = new tictactoeEngine(0, 0, 0, 1, 4);
-    //$engine->getBestMove();

@@ -261,7 +261,7 @@
             </tr>
         </table>
     </div>
-     <script src="assets/js/jquery.js">
-     <script src="assets/js/bootstrap.js">
+     <script src="assets/js/jquery.js"></script>
+     <script src="assets/js/bootstrap.js"></script>
 </body>
 </html>
